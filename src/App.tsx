@@ -11,7 +11,7 @@ function App() {
             <header className="fixed top-0 w-full z-50 glass">
                 <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
                     <span className="text-xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-                        JG
+                        JT
                     </span>
                     <nav className="hidden md:flex gap-8 text-sm font-medium text-slate-300">
                         <a href="#about" className="hover:text-white transition-colors">Sobre</a>
@@ -33,7 +33,7 @@ function App() {
                         animate={{ opacity: 1, y: 0 }}
                         className="text-primary font-medium tracking-wider uppercase mb-4"
                     >
-                        Olá, eu sou o Juliano
+                        Olá, eu sou o Juliano Teixeira
                     </motion.h2>
 
                     <motion.h1
@@ -184,7 +184,7 @@ function App() {
             </main>
 
             <footer className="py-8 text-center text-slate-500 text-sm">
-                <p>© {new Date().getFullYear()} Juliano Gabriel. Construído com Vite, React e Tailwind CSS.</p>
+                <p>© {new Date().getFullYear()} Juliano Gabriel Teixeira. Construído com Vite, React e Tailwind CSS.</p>
             </footer>
         </div>
     )
