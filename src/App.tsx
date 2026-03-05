@@ -119,36 +119,63 @@ function App() {
                             Uma seleção de projetos pessoais e profissionais focados em dados, automação e desenvolvimento full-stack.
                         </p>
 
-                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                            {/* Project Card Placeholder 1 */}
-                            {[1, 2, 3].map((item) => (
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                            {[
+                                {
+                                    title: 'Dashboard de Performance Estratégica',
+                                    tags: ['Power BI', 'SQL', 'DAX'],
+                                    color: 'from-blue-900 to-slate-900',
+                                    desc: 'Painel interativo consolidando métricas financeiras e KPIs estratégicos, permitindo monitoramento diário e suporte rápido para a tomada de decisão executiva.'
+                                },
+                                {
+                                    title: 'Automação de Pipeline de Dados (ETL)',
+                                    tags: ['Python', 'Pandas', 'Cloud'],
+                                    color: 'from-emerald-900 to-slate-900',
+                                    desc: 'Arquitetura escalável para extração, transformação e carga de grandes volumes de dados de múltiplas fontes de parceiros para um Data Warehouse centralizado.'
+                                },
+                                {
+                                    title: 'Sistema Web de Gestão Interna',
+                                    tags: ['React', 'Node.js', 'Typescript'],
+                                    color: 'from-indigo-900 to-slate-900',
+                                    desc: 'Aplicação web full-stack desenvolvida para digitalizar fluxos de trabalho manuais da equipe, contando com autenticação, níveis de permissão e geração de relatórios.'
+                                },
+                                {
+                                    title: 'Análise Preditiva e Forecast',
+                                    tags: ['Python', 'Jupyter', 'Machine Learning'],
+                                    color: 'from-purple-900 to-slate-900',
+                                    desc: 'Estudo de dados focado em prever a demanda sazonal de produtos utilizando algoritmos de regressão para otimizar a cadeia de suprimentos e as metas operacionais.'
+                                }
+                            ].map((project, index) => (
                                 <motion.div
                                     initial={{ opacity: 0, scale: 0.95 }}
                                     whileInView={{ opacity: 1, scale: 1 }}
                                     viewport={{ once: true }}
-                                    key={item}
-                                    className="bg-dark rounded-2xl border border-slate-800 overflow-hidden group hover:-translate-y-2 transition-transform duration-300"
+                                    transition={{ delay: index * 0.1 }}
+                                    key={project.title}
+                                    className="bg-dark rounded-2xl border border-slate-800 overflow-hidden group hover:border-slate-600 transition-colors duration-300 flex flex-col"
                                 >
-                                    <div className="h-48 bg-slate-800 relative overflow-hidden flex items-center justify-center">
-                                        {/* Imagem do projeto entra aqui */}
-                                        <div className="absolute inset-0 bg-gradient-to-t from-dark to-transparent opacity-60 z-10" />
-                                        <span className="text-slate-500 font-medium z-0">Screenshot do Projeto</span>
+                                    <div className={`h-56 relative overflow-hidden flex items-center justify-center bg-gradient-to-br ${project.color}`}>
+                                        <div className="absolute inset-0 bg-dark/20 group-hover:bg-transparent transition-colors duration-500 z-10" />
+                                        <span className="text-white/40 font-medium z-0 tracking-widest text-sm uppercase">Imagem do Projeto</span>
                                     </div>
-                                    <div className="p-6">
-                                        <div className="flex gap-2 mb-4">
-                                            <span className="text-xs font-semibold px-2 py-1 bg-primary/10 text-primary rounded-md">Python</span>
-                                            <span className="text-xs font-semibold px-2 py-1 bg-accent/10 text-accent rounded-md">PowerBI</span>
+                                    <div className="p-8 flex-1 flex flex-col">
+                                        <div className="flex flex-wrap gap-2 mb-5">
+                                            {project.tags.map(tag => (
+                                                <span key={tag} className="text-xs font-semibold px-2.5 py-1 bg-slate-800 text-slate-300 rounded-md">
+                                                    {tag}
+                                                </span>
+                                            ))}
                                         </div>
-                                        <h3 className="text-xl font-bold text-white mb-2 group-hover:text-primary transition-colors">Projeto Modelo {item}</h3>
-                                        <p className="text-slate-400 text-sm mb-6 line-clamp-3">
-                                            Este é um espaço reservado para um projeto futuro. Aqui ficará a descrição do desafio técnico, as tecnologias utilizadas e o resultado gerado.
+                                        <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-primary transition-colors">{project.title}</h3>
+                                        <p className="text-slate-400 text-sm mb-8 leading-relaxed flex-1">
+                                            {project.desc}
                                         </p>
-                                        <div className="flex items-center gap-4">
-                                            <a href="#" className="flex items-center gap-2 text-sm font-medium text-white hover:text-primary transition-colors">
-                                                <Github className="w-4 h-4" /> Código
+                                        <div className="flex items-center gap-6 mt-auto">
+                                            <a href="#" className="flex items-center gap-2 text-sm font-semibold text-white hover:text-primary transition-colors">
+                                                <ExternalLink className="w-4 h-4" /> Preview Visual
                                             </a>
-                                            <a href="#" className="flex items-center gap-2 text-sm font-medium text-white hover:text-primary transition-colors">
-                                                <ExternalLink className="w-4 h-4" /> Preview
+                                            <a href="#" className="flex items-center gap-2 text-sm font-semibold text-slate-400 hover:text-white transition-colors">
+                                                <Github className="w-4 h-4" /> Repositório
                                             </a>
                                         </div>
                                     </div>
