@@ -4,5 +4,5 @@ import react from '@vitejs/plugin-react';
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
-  base: '/portfolio_juliano/', // Necessário para o GitHub Pages
+  base: '/portfolio/', // Necessário para o GitHub Pages
 });
