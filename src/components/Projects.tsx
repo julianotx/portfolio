@@ -1,112 +1,143 @@
 import { motion } from 'framer-motion';
 import { ExternalLink, Github } from 'lucide-react';
-import { projectsData } from '../data/projects';
+
+const GITHUB_URL = 'https://github.com/julianotx';
+
+const projects = [
+    {
+        num: '01',
+        title: 'Dashboard Financeiro — Power BI',
+        tags: ['Power BI', 'SQL', 'DAX', 'Excel'],
+        desc: 'Painel executivo consolidando KPIs financeiros, receita mensal e análise de despesas. Permite filtros dinâmicos por período e centro de custo para apoio à tomada de decisão.',
+        gradient: 'from-blue-900/60 to-slate-900/60',
+        accent: 'border-blue-500/30',
+        tag_color: 'bg-blue-500/10 text-blue-300 border-blue-500/20',
+        repoLink: GITHUB_URL,
+        demoLink: '#',
+    },
+    {
+        num: '02',
+        title: 'Automação de Relatórios — Python',
+        tags: ['Python', 'Pandas', 'Openpyxl', 'Automação'],
+        desc: 'Script que automatiza a geração de relatórios mensais a partir de planilhas brutas, consolidando dados de múltiplas fontes e exportando em formato padronizado.',
+        gradient: 'from-violet-900/60 to-slate-900/60',
+        accent: 'border-violet-500/30',
+        tag_color: 'bg-violet-500/10 text-violet-300 border-violet-500/20',
+        repoLink: GITHUB_URL,
+        demoLink: '#',
+    },
+    {
+        num: '03',
+        title: 'Sistema Web — React + TypeScript',
+        tags: ['React', 'TypeScript', 'Tailwind', 'Vite'],
+        desc: 'Aplicação web responsiva com interface moderna, navegação por componentes, integração com APIs e design system próprio otimizado para performance.',
+        gradient: 'from-cyan-900/60 to-slate-900/60',
+        accent: 'border-cyan-500/30',
+        tag_color: 'bg-cyan-500/10 text-cyan-300 border-cyan-500/20',
+        repoLink: GITHUB_URL,
+        demoLink: '#',
+    },
+    {
+        num: '04',
+        title: 'Análise de Dados — SQL & Python',
+        tags: ['SQL', 'Python', 'Matplotlib', 'Jupyter'],
+        desc: 'Análise exploratória aprofundada com queries SQL otimizadas, visualizações em Python e relatório final com insights e recomendações estratégicas de negócio.',
+        gradient: 'from-emerald-900/60 to-slate-900/60',
+        accent: 'border-emerald-500/30',
+        tag_color: 'bg-emerald-500/10 text-emerald-300 border-emerald-500/20',
+        repoLink: GITHUB_URL,
+        demoLink: '#',
+    },
+];
 
 export const Projects = () => {
     return (
-        <section id="projects" className="py-32 px-6 bg-dark">
+        <section id="projects" className="py-28 px-6 bg-[#0d0d14]">
             <div className="max-w-7xl mx-auto">
-
-                {/* Section Header */}
-                <div className="mb-20 text-center md:text-left md:flex md:items-end md:justify-between">
-                    <div className="max-w-2xl">
-                        <motion.h2
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            className="text-4xl md:text-5xl font-black text-white mb-6"
-                        >
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-16"
+                >
+                    <div>
+                        <p className="text-blue-400 text-sm font-semibold tracking-widest uppercase mb-4">Portfólio</p>
+                        <h2 className="text-4xl md:text-5xl font-black text-white">
                             Projetos em Destaque
-                        </motion.h2>
-                        <motion.p
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ delay: 0.1 }}
-                            className="text-lg text-slate-400 leading-relaxed"
-                        >
-                            Uma visão prática de soluções reais construídas, unindo análise de dados complexa a interfaces web amigáveis e automatizadas.
-                        </motion.p>
+                        </h2>
                     </div>
-
-                    <motion.a
-                        initial={{ opacity: 0, x: 20 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true }}
-                        href="https://github.com/julianotx"
+                    <a
+                        href={GITHUB_URL}
                         target="_blank"
-                        rel="noreferrer"
-                        className="hidden md:inline-flex items-center gap-2 px-6 py-3 bg-darker border border-slate-700 text-white rounded-full font-medium hover:bg-slate-800 transition-colors"
+                        rel="noopener noreferrer"
+                        className="self-start md:self-auto inline-flex items-center gap-2 px-6 py-3 border border-white/10 bg-white/5 hover:bg-white/10 text-white text-sm font-medium rounded-full transition-all"
                     >
-                        <Github className="w-5 h-5" /> Ver Repositório
-                    </motion.a>
-                </div>
+                        <Github size={16} />
+                        Ver no GitHub
+                    </a>
+                </motion.div>
 
-                {/* Grid of Projects */}
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
-                    {projectsData.map((project, index) => (
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                    {projects.map((p, i) => (
                         <motion.div
-                            initial={{ opacity: 0, y: 40 }}
+                            key={p.num}
+                            initial={{ opacity: 0, y: 30 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
-                            transition={{ delay: index * 0.1, duration: 0.5 }}
-                            key={project.title}
-                            className="bg-darker rounded-[2rem] border border-slate-800/80 overflow-hidden group hover:border-slate-600 transition-colors duration-500 flex flex-col"
+                            transition={{ delay: i * 0.1 }}
+                            className={`group relative bg-[#111118] border ${p.accent} hover:border-opacity-60 rounded-2xl overflow-hidden transition-all duration-300 hover:-translate-y-1`}
                         >
-                            {/* Media Space */}
-                            <div className={`h-64 sm:h-80 relative overflow-hidden flex items-center justify-center bg-gradient-to-br ${project.color}`}>
-                                <div className="absolute inset-0 bg-dark/20 group-hover:bg-transparent transition-colors duration-700 z-10" />
-                                <span className="text-white/40 font-bold tracking-widest text-sm uppercase flex items-center gap-3">
-                                    <div className="w-10 h-[1px] bg-white/20"></div>
-                                    Espaço para Mídia
-                                    <div className="w-10 h-[1px] bg-white/20"></div>
-                                </span>
+                            {/* Colored top bar */}
+                            <div className={`h-1.5 w-full bg-gradient-to-r ${p.gradient.replace('/60', '')}`} />
 
-                                {/* 
-                  Instrução para uso futuro com imagens reais na pasta public: 
-                  <img src="/projeto-x.png" alt={project.title} className="w-full h-full object-cover" /> 
-                */}
+                            {/* Media placeholder */}
+                            <div className={`h-48 bg-gradient-to-br ${p.gradient} flex items-center justify-center border-b border-white/5`}>
+                                <span className="text-6xl font-black text-white/[0.07] select-none">{p.num}</span>
                             </div>
 
-                            {/* Data & Content */}
-                            <div className="p-8 sm:p-10 flex-1 flex flex-col">
-                                <div className="flex flex-wrap gap-2 mb-6">
-                                    {project.tags.map(tag => (
-                                        <span key={tag} className="text-xs sm:text-sm font-semibold px-3 py-1.5 bg-slate-800/50 text-slate-300 rounded-full border border-slate-700/50">
-                                            {tag}
+                            <div className="p-7">
+                                {/* Tags */}
+                                <div className="flex flex-wrap gap-2 mb-5">
+                                    {p.tags.map((t) => (
+                                        <span key={t} className={`text-xs font-semibold px-2.5 py-1 rounded-md border ${p.tag_color}`}>
+                                            {t}
                                         </span>
                                     ))}
                                 </div>
 
-                                <h3 className="text-2xl sm:text-3xl font-bold text-white mb-4 group-hover:text-primary transition-colors">
-                                    {project.title}
+                                {/* Title */}
+                                <h3 className="text-xl font-bold text-white mb-3 group-hover:text-blue-300 transition-colors">
+                                    {p.title}
                                 </h3>
 
-                                <p className="text-slate-400 text-base sm:text-lg mb-10 leading-relaxed flex-1 font-light">
-                                    {project.desc}
+                                {/* Desc */}
+                                <p className="text-slate-400 text-sm leading-relaxed mb-7">
+                                    {p.desc}
                                 </p>
 
                                 {/* Actions */}
-                                <div className="flex flex-wrap items-center gap-6 mt-auto pt-6 border-t border-slate-800/80">
-                                    <a href={project.demoLink} className="flex items-center gap-2 text-sm sm:text-base font-semibold text-white hover:text-primary transition-colors">
-                                        <ExternalLink className="w-5 h-5" /> Ver Resultado
+                                <div className="flex items-center gap-6 pt-5 border-t border-white/5">
+                                    <a
+                                        href={p.demoLink}
+                                        className="inline-flex items-center gap-1.5 text-sm font-semibold text-white hover:text-blue-400 transition-colors"
+                                    >
+                                        <ExternalLink size={15} />
+                                        Ver Demo
                                     </a>
-                                    <a href={project.repoLink} className="flex items-center gap-2 text-sm sm:text-base font-semibold text-slate-400 hover:text-white transition-colors">
-                                        <Github className="w-5 h-5" /> Código Fonte
+                                    <a
+                                        href={p.repoLink}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="inline-flex items-center gap-1.5 text-sm font-medium text-slate-500 hover:text-white transition-colors"
+                                    >
+                                        <Github size={15} />
+                                        Código
                                     </a>
                                 </div>
                             </div>
                         </motion.div>
                     ))}
                 </div>
-
-                {/* Mobile View Github link */}
-                <div className="mt-12 text-center md:hidden">
-                    <a href="https://github.com/julianotx" className="inline-flex items-center gap-2 px-6 py-3 bg-dark border border-slate-700 text-white rounded-full font-medium active:bg-slate-800">
-                        <Github className="w-5 h-5" /> Mais no GitHub
-                    </a>
-                </div>
-
             </div>
         </section>
     );

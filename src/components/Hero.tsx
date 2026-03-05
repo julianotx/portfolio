@@ -1,67 +1,123 @@
 import { motion } from 'framer-motion';
-import { socialLinks } from '../data/social';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, Github, Linkedin, Mail } from 'lucide-react';
 
 export const Hero = () => {
     return (
-        <section className="pt-32 pb-20 px-6 min-h-[90vh] flex flex-col justify-center max-w-7xl mx-auto relative overflow-hidden">
-            {/* Background Orbs */}
-            <div className="absolute top-20 right-0 md:right-20 w-72 h-72 md:w-96 md:h-96 bg-primary/20 rounded-full blur-3xl -z-10 animate-pulse" />
-            <div className="absolute bottom-10 left-0 md:left-20 w-72 h-72 md:w-96 md:h-96 bg-accent/10 rounded-full blur-3xl -z-10" />
+        <section className="relative min-h-screen flex items-center px-6 overflow-hidden">
+            {/* Gradient background */}
+            <div className="absolute inset-0 bg-[#0a0a0f]">
+                <div className="absolute top-1/4 -left-32 w-96 h-96 bg-blue-600/20 rounded-full blur-[120px]" />
+                <div className="absolute bottom-1/4 -right-32 w-96 h-96 bg-violet-600/20 rounded-full blur-[120px]" />
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-blue-900/10 rounded-full blur-[100px]" />
+            </div>
 
-            <div className="flex flex-col items-start gap-2">
-                <motion.div
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 0.5 }}
-                    className="px-4 py-2 bg-primary/10 border border-primary/20 rounded-full text-primary text-xs font-semibold tracking-widest uppercase mb-4"
-                >
-                    Disponível para novos projetos
-                </motion.div>
+            {/* Grid pattern */}
+            <div
+                className="absolute inset-0 opacity-[0.03]"
+                style={{
+                    backgroundImage: 'linear-gradient(#ffffff 1px, transparent 1px), linear-gradient(90deg, #ffffff 1px, transparent 1px)',
+                    backgroundSize: '60px 60px',
+                }}
+            />
 
-                <motion.h2
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    className="text-slate-300 text-xl font-medium mb-2"
-                >
-                    Olá, eu sou o Juliano Teixeira 👋
-                </motion.h2>
+            <div className="relative max-w-7xl mx-auto w-full pt-24 pb-16">
+                <div className="max-w-4xl">
+                    {/* Badge */}
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.5 }}
+                        className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-blue-500/30 bg-blue-500/10 text-blue-400 text-xs font-semibold tracking-widest uppercase mb-8"
+                    >
+                        <span className="w-2 h-2 bg-blue-400 rounded-full animate-pulse" />
+                        Disponível para novos projetos
+                    </motion.div>
 
-                <motion.h1
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.1 }}
-                    className="text-5xl md:text-7xl lg:text-8xl font-black text-white mb-6 leading-tight tracking-tight"
-                >
-                    Analista de Dados <span className="opacity-40">&</span> <br />
-                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-blue-400 to-accent">
-                        Desenvolvedor
-                    </span>
-                </motion.h1>
+                    {/* Heading */}
+                    <motion.h1
+                        initial={{ opacity: 0, y: 30 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.6, delay: 0.1 }}
+                        className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black text-white leading-[1.05] tracking-tight mb-6"
+                    >
+                        Analista de Dados
+                        <br />
+                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-violet-400 to-cyan-400">
+                            &amp; Desenvolvedor
+                        </span>
+                    </motion.h1>
 
-                <motion.p
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.2 }}
-                    className="text-lg md:text-xl text-slate-400 max-w-2xl mb-10 leading-relaxed font-light"
-                >
-                    Transformo dados brutos em insights e automações, desenvolvendo sistemas responsivos focados em impacto, performance e design inteligente.
-                </motion.p>
+                    {/* Sub */}
+                    <motion.p
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.5, delay: 0.25 }}
+                        className="text-lg md:text-xl text-slate-400 max-w-2xl leading-relaxed font-light mb-10"
+                    >
+                        Olá, sou <strong className="text-white font-semibold">Juliano Gabriel Teixeira</strong> —
+                        transformo dados complexos em insights acionáveis e construo sistemas
+                        responsivos que entregam resultados reais.
+                    </motion.p>
 
-                <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.3 }}
-                    className="flex flex-wrap gap-4 w-full md:w-auto"
-                >
-                    <a href="#projects" className="w-full md:w-auto group flex items-center justify-center gap-2 px-8 py-4 bg-primary text-white rounded-full font-medium hover:bg-blue-600 transition-all shadow-lg shadow-primary/25 hover:shadow-primary/40 hover:-translate-y-1">
-                        Explorar Projetos
-                        <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                    </a>
-                    <a href={socialLinks.whatsapp.url} target="_blank" rel="noreferrer" className="w-full md:w-auto flex items-center justify-center gap-2 px-8 py-4 bg-dark border border-slate-700 text-white rounded-full font-medium hover:bg-slate-800 hover:border-slate-500 transition-all hover:-translate-y-1">
-                        Entrar em Contato
-                    </a>
-                </motion.div>
+                    {/* CTA buttons */}
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.5, delay: 0.35 }}
+                        className="flex flex-wrap gap-4 mb-14"
+                    >
+                        <a
+                            href="#projects"
+                            className="group inline-flex items-center gap-2 px-8 py-4 bg-blue-600 hover:bg-blue-500 text-white font-semibold rounded-full transition-all shadow-lg shadow-blue-600/30 hover:shadow-blue-500/40 hover:-translate-y-0.5"
+                        >
+                            Ver Projetos
+                            <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
+                        </a>
+                        <a
+                            href="https://wa.me/5511986598865"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-2 px-8 py-4 border border-white/10 hover:border-white/20 bg-white/5 hover:bg-white/10 text-white font-semibold rounded-full transition-all hover:-translate-y-0.5"
+                        >
+                            Entrar em Contato
+                        </a>
+                    </motion.div>
+
+                    {/* Social links */}
+                    <motion.div
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        transition={{ duration: 0.5, delay: 0.5 }}
+                        className="flex items-center gap-5"
+                    >
+                        <span className="text-slate-600 text-sm">Encontre-me em:</span>
+                        <a
+                            href="https://github.com/julianotx"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="flex items-center gap-2 text-slate-500 hover:text-white transition-colors text-sm"
+                        >
+                            <Github size={18} />
+                            GitHub
+                        </a>
+                        <a
+                            href="https://www.linkedin.com/in/juliano-g-teixeira/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="flex items-center gap-2 text-slate-500 hover:text-blue-400 transition-colors text-sm"
+                        >
+                            <Linkedin size={18} />
+                            LinkedIn
+                        </a>
+                        <a
+                            href="mailto:julianogab.tx@gmail.com"
+                            className="flex items-center gap-2 text-slate-500 hover:text-white transition-colors text-sm"
+                        >
+                            <Mail size={18} />
+                            E-mail
+                        </a>
+                    </motion.div>
+                </div>
             </div>
         </section>
     );

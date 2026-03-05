@@ -1,57 +1,69 @@
 import { motion } from 'framer-motion';
-import { BarChart3, Settings, Database, Code } from 'lucide-react';
 
-const skills = [
-    { icon: BarChart3, title: 'Dashboards', desc: 'Criação de visões analíticas complexas e storytelling de dados, facilitando o monitoramento de KPIs para a tomada de decisão.' },
-    { icon: Settings, title: 'Automações', desc: 'Desenvolvimento de scripts estruturados capazes de orquestrar e simplificar fluxos de trabalho rotineiros.' },
-    { icon: Database, title: 'Engenharia de Dados', desc: 'Atuação com bases de dados SQL, noSQL e tratamento ETL utilizando as melhores práticas para garantir escalabilidade.' },
-    { icon: Code, title: 'Desenvolvimento Web', desc: 'Construção de aplicações Full-Stack modernas, responsivas e performáticas com React, Node e ecossistema TypeScript.' }
+const skillGroups = [
+    {
+        category: 'Dados & BI',
+        color: 'bg-blue-500/10 border-blue-500/20 text-blue-300',
+        dot: 'bg-blue-400',
+        skills: ['SQL', 'Python', 'Power BI', 'Excel Avançado', 'DAX', 'ETL', 'Pandas', 'NumPy'],
+    },
+    {
+        category: 'Desenvolvimento',
+        color: 'bg-violet-500/10 border-violet-500/20 text-violet-300',
+        dot: 'bg-violet-400',
+        skills: ['React', 'TypeScript', 'JavaScript', 'HTML & CSS', 'Tailwind CSS', 'Vite', 'Node.js', 'REST APIs'],
+    },
+    {
+        category: 'Ferramentas',
+        color: 'bg-cyan-500/10 border-cyan-500/20 text-cyan-300',
+        dot: 'bg-cyan-400',
+        skills: ['Git & GitHub', 'VS Code', 'Figma', 'Postman', 'Docker (básico)', 'Linux', 'Notion', 'Jira'],
+    },
 ];
 
 export const Skills = () => {
     return (
-        <section id="skills" className="py-24 px-6 bg-darker relative">
+        <section id="skills" className="py-28 px-6 bg-[#0a0a0f]">
             <div className="max-w-7xl mx-auto">
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    className="mb-16"
+                >
+                    <p className="text-blue-400 text-sm font-semibold tracking-widest uppercase mb-4">Habilidades</p>
+                    <h2 className="text-4xl md:text-5xl font-black text-white">
+                        Stack &amp; Ferramentas
+                    </h2>
+                </motion.div>
 
-                <div className="text-center max-w-2xl mx-auto mb-16">
-                    <motion.h2
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        className="text-3xl md:text-4xl font-bold text-white mb-4"
-                    >
-                        Habilidades Principais
-                    </motion.h2>
-                    <motion.p
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ delay: 0.1 }}
-                        className="text-slate-400"
-                    >
-                        Um resumo das ferramentas práticas e dos contextos onde possuo maior domínio e foco de estudos contínuos.
-                    </motion.p>
-                </div>
-
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                    {skills.map((skill, i) => (
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    {skillGroups.map((group, gi) => (
                         <motion.div
-                            initial={{ opacity: 0, y: 20 }}
+                            key={group.category}
+                            initial={{ opacity: 0, y: 30 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
-                            transition={{ delay: i * 0.1 }}
-                            key={skill.title}
-                            className="p-8 bg-dark rounded-2xl border border-slate-800 hover:border-primary/50 transition-colors group cursor-default"
+                            transition={{ delay: gi * 0.1 }}
+                            className="p-6 rounded-2xl bg-white/[0.03] border border-white/[0.07] hover:border-white/10 transition-colors"
                         >
-                            <div className="w-14 h-14 bg-primary/10 rounded-xl flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-colors">
-                                <skill.icon className="w-7 h-7 text-primary group-hover:scale-110 transition-transform" />
+                            <div className={`inline-flex items-center gap-2 px-3 py-1.5 rounded-full border text-xs font-semibold mb-6 ${group.color}`}>
+                                <span className={`w-1.5 h-1.5 rounded-full ${group.dot}`} />
+                                {group.category}
                             </div>
-                            <h3 className="text-xl font-bold text-white mb-3">{skill.title}</h3>
-                            <p className="text-slate-400 text-sm leading-relaxed">{skill.desc}</p>
+                            <div className="flex flex-wrap gap-2">
+                                {group.skills.map((skill) => (
+                                    <span
+                                        key={skill}
+                                        className="px-3 py-1.5 bg-white/5 border border-white/8 text-slate-300 text-sm rounded-lg hover:bg-white/10 transition-colors cursor-default"
+                                    >
+                                        {skill}
+                                    </span>
+                                ))}
+                            </div>
                         </motion.div>
                     ))}
                 </div>
-
             </div>
         </section>
     );

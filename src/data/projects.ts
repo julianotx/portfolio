@@ -1,3 +1,5 @@
+import { socialLinks } from './social';
+
 export interface Project {
     title: string;
     tags: string[];
@@ -13,7 +15,7 @@ export const projectsData: Project[] = [
         tags: ['Power BI', 'SQL', 'DAX'],
         color: 'from-blue-900 to-slate-900',
         desc: 'Painel interativo consolidando métricas financeiras e KPIs estratégicos, permitindo monitoramento diário e suporte rápido para a tomada de decisão executiva.',
-        repoLink: 'https://github.com/julianotx',
+        repoLink: socialLinks.github.url,
         demoLink: '#'
     },
     {
