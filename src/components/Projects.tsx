@@ -1,68 +1,25 @@
 import { motion } from 'framer-motion';
 import { ExternalLink, Github } from 'lucide-react';
+import { fadeUp, staggerContainer, viewport } from '../hooks/useScrollReveal';
+import { projects } from '../data/projects';
 
 const GITHUB_URL = 'https://github.com/julianotx';
 
-const projects = [
-    {
-        num: '01',
-        title: 'Dashboard Financeiro — Power BI',
-        tags: ['Power BI', 'SQL', 'DAX', 'Excel'],
-        desc: 'Painel executivo consolidando KPIs financeiros, receita mensal e análise de despesas. Permite filtros dinâmicos por período e centro de custo para apoio à tomada de decisão.',
-        gradient: 'from-blue-900/60 to-slate-900/60',
-        accent: 'border-blue-500/30',
-        tag_color: 'bg-blue-500/10 text-blue-300 border-blue-500/20',
-        repoLink: GITHUB_URL,
-        demoLink: '#',
-    },
-    {
-        num: '02',
-        title: 'Automação de Relatórios — Python',
-        tags: ['Python', 'Pandas', 'Openpyxl', 'Automação'],
-        desc: 'Script que automatiza a geração de relatórios mensais a partir de planilhas brutas, consolidando dados de múltiplas fontes e exportando em formato padronizado.',
-        gradient: 'from-violet-900/60 to-slate-900/60',
-        accent: 'border-violet-500/30',
-        tag_color: 'bg-violet-500/10 text-violet-300 border-violet-500/20',
-        repoLink: GITHUB_URL,
-        demoLink: '#',
-    },
-    {
-        num: '03',
-        title: 'Sistema Web — React + TypeScript',
-        tags: ['React', 'TypeScript', 'Tailwind', 'Vite'],
-        desc: 'Aplicação web responsiva com interface moderna, navegação por componentes, integração com APIs e design system próprio otimizado para performance.',
-        gradient: 'from-cyan-900/60 to-slate-900/60',
-        accent: 'border-cyan-500/30',
-        tag_color: 'bg-cyan-500/10 text-cyan-300 border-cyan-500/20',
-        repoLink: GITHUB_URL,
-        demoLink: '#',
-    },
-    {
-        num: '04',
-        title: 'Análise de Dados — SQL & Python',
-        tags: ['SQL', 'Python', 'Matplotlib', 'Jupyter'],
-        desc: 'Análise exploratória aprofundada com queries SQL otimizadas, visualizações em Python e relatório final com insights e recomendações estratégicas de negócio.',
-        gradient: 'from-emerald-900/60 to-slate-900/60',
-        accent: 'border-emerald-500/30',
-        tag_color: 'bg-emerald-500/10 text-emerald-300 border-emerald-500/20',
-        repoLink: GITHUB_URL,
-        demoLink: '#',
-    },
-];
-
 export const Projects = () => {
     return (
-        <section id="projects" className="py-28 px-6 bg-[#0d0d14]">
+        <section id="projects" className="py-20 sm:py-28 px-4 sm:px-6 bg-[#0d0d14]">
             <div className="max-w-7xl mx-auto">
+                {/* Section header */}
                 <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-16"
+                    variants={fadeUp}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={viewport}
+                    className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 sm:gap-6 mb-10 sm:mb-16"
                 >
                     <div>
-                        <p className="text-blue-400 text-sm font-semibold tracking-widest uppercase mb-4">Portfólio</p>
-                        <h2 className="text-4xl md:text-5xl font-black text-white">
+                        <p className="text-blue-400 text-xs sm:text-sm font-semibold tracking-widest uppercase mb-3 sm:mb-4">Portfólio</p>
+                        <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-white">
                             Projetos em Destaque
                         </h2>
                     </div>
@@ -70,74 +27,79 @@ export const Projects = () => {
                         href={GITHUB_URL}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="self-start md:self-auto inline-flex items-center gap-2 px-6 py-3 border border-white/10 bg-white/5 hover:bg-white/10 text-white text-sm font-medium rounded-full transition-all"
+                        className="self-start sm:self-auto inline-flex items-center gap-2 px-4 sm:px-6 py-2.5 sm:py-3 border border-white/10 bg-white/5 hover:bg-white/10 text-white text-xs sm:text-sm font-medium rounded-full transition-all"
                     >
-                        <Github size={16} />
+                        <Github size={14} />
                         Ver no GitHub
                     </a>
                 </motion.div>
 
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                    {projects.map((p, i) => (
+                {/* Project cards */}
+                <motion.div
+                    className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6"
+                    variants={staggerContainer(0.13)}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={viewport}
+                >
+                    {projects.map((p) => (
                         <motion.div
                             key={p.num}
-                            initial={{ opacity: 0, y: 30 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ delay: i * 0.1 }}
-                            className={`group relative bg-[#111118] border ${p.accent} hover:border-opacity-60 rounded-2xl overflow-hidden transition-all duration-300 hover:-translate-y-1`}
+                            variants={fadeUp}
+                            whileHover={{ y: -6, transition: { type: 'spring', stiffness: 280, damping: 22 } }}
+                            className={`group relative bg-[#111118] border ${p.accent} hover:border-opacity-60 rounded-2xl overflow-hidden transition-colors duration-300`}
                         >
-                            {/* Colored top bar */}
                             <div className={`h-1.5 w-full bg-gradient-to-r ${p.gradient.replace('/60', '')}`} />
 
-                            {/* Media placeholder */}
-                            <div className={`h-48 bg-gradient-to-br ${p.gradient} flex items-center justify-center border-b border-white/5`}>
-                                <span className="text-6xl font-black text-white/[0.07] select-none">{p.num}</span>
+                            {/* Project Image Container */}
+                            <div className="relative h-48 sm:h-64 overflow-hidden border-b border-white/5 bg-slate-900">
+                                <img
+                                    src={p.image}
+                                    alt={p.title}
+                                    className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
+                                />
+                                <div className={`absolute inset-0 bg-gradient-to-t from-[#111118] to-transparent opacity-60`} />
+                                <div className="absolute top-4 left-4 bg-black/40 backdrop-blur-md border border-white/10 px-3 py-1 rounded-full text-[10px] font-bold text-white/70 uppercase tracking-widest">
+                                    Projeto {p.num}
+                                </div>
                             </div>
 
-                            <div className="p-7">
-                                {/* Tags */}
-                                <div className="flex flex-wrap gap-2 mb-5">
+                            <div className="p-5 sm:p-7">
+                                <div className="flex flex-wrap gap-1.5 sm:gap-2 mb-4 sm:mb-5">
                                     {p.tags.map((t) => (
-                                        <span key={t} className={`text-xs font-semibold px-2.5 py-1 rounded-md border ${p.tag_color}`}>
+                                        <span key={t} className={`text-[11px] sm:text-xs font-semibold px-2 sm:px-2.5 py-1 rounded-md border ${p.tag_color}`}>
                                             {t}
                                         </span>
                                     ))}
                                 </div>
 
-                                {/* Title */}
-                                <h3 className="text-xl font-bold text-white mb-3 group-hover:text-blue-300 transition-colors">
+                                <h3 className="text-lg sm:text-xl font-bold text-white mb-2 sm:mb-3 group-hover:text-blue-300 transition-colors">
                                     {p.title}
                                 </h3>
 
-                                {/* Desc */}
-                                <p className="text-slate-400 text-sm leading-relaxed mb-7">
+                                <p className="text-slate-400 text-xs sm:text-sm leading-relaxed mb-5 sm:mb-7 h-auto">
                                     {p.desc}
                                 </p>
 
-                                {/* Actions */}
-                                <div className="flex items-center gap-6 pt-5 border-t border-white/5">
+                                <div className="flex items-center gap-4 sm:gap-6 pt-4 sm:pt-5 border-t border-white/5">
                                     <a
                                         href={p.demoLink}
-                                        className="inline-flex items-center gap-1.5 text-sm font-semibold text-white hover:text-blue-400 transition-colors"
+                                        target={p.demoLink === '#' ? '_self' : '_blank'}
+                                        rel="noopener noreferrer"
+                                        className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-semibold text-white hover:text-blue-400 transition-colors"
                                     >
-                                        <ExternalLink size={15} />
+                                        <ExternalLink size={13} />
                                         Ver Demo
                                     </a>
-                                    <a
-                                        href={p.repoLink}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className="inline-flex items-center gap-1.5 text-sm font-medium text-slate-500 hover:text-white transition-colors"
-                                    >
-                                        <Github size={15} />
+                                    <a href={p.repoLink} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-medium text-slate-500 hover:text-white transition-colors">
+                                        <Github size={13} />
                                         Código
                                     </a>
                                 </div>
                             </div>
                         </motion.div>
                     ))}
-                </div>
+                </motion.div>
             </div>
         </section>
     );

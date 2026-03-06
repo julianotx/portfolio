@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { BarChart3, Code2, TrendingUp } from 'lucide-react';
+import { fadeLeft, fadeRight, staggerContainer, viewport } from '../hooks/useScrollReveal';
 
 const pillars = [
     {
@@ -27,22 +28,22 @@ const pillars = [
 
 export const About = () => {
     return (
-        <section id="about" className="py-28 px-6 bg-[#0d0d14]">
+        <section id="about" className="py-20 sm:py-28 px-4 sm:px-6 bg-[#0d0d14]">
             <div className="max-w-7xl mx-auto">
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 sm:gap-16 items-center">
                     {/* Text */}
                     <motion.div
-                        initial={{ opacity: 0, x: -30 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.6 }}
+                        variants={fadeLeft}
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={viewport}
                     >
-                        <p className="text-blue-400 text-sm font-semibold tracking-widest uppercase mb-4">Sobre mim</p>
-                        <h2 className="text-4xl md:text-5xl font-black text-white mb-6 leading-tight">
+                        <p className="text-blue-400 text-xs sm:text-sm font-semibold tracking-widest uppercase mb-3 sm:mb-4">Sobre mim</p>
+                        <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-white mb-5 sm:mb-6 leading-tight">
                             Dados que geram valor.<br />
                             <span className="text-slate-400 font-normal">Código que funciona.</span>
                         </h2>
-                        <div className="space-y-4 text-slate-400 text-lg leading-relaxed font-light">
+                        <div className="space-y-3 sm:space-y-4 text-slate-400 text-base sm:text-lg leading-relaxed font-light">
                             <p>
                                 Sou Analista de Dados e Desenvolvedor com foco em criar soluções que combinam
                                 análise quantitativa com experiências digitais bem construídas.
@@ -55,27 +56,32 @@ export const About = () => {
                         </div>
                     </motion.div>
 
-                    {/* Pillar cards */}
-                    <div className="flex flex-col gap-4">
-                        {pillars.map((p, i) => (
+                    {/* Pillar cards — stagger from right, stack on mobile */}
+                    <motion.div
+                        className="flex flex-col gap-3 sm:gap-4"
+                        variants={staggerContainer(0.14)}
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={viewport}
+                    >
+                        {pillars.map((p) => (
                             <motion.div
                                 key={p.title}
-                                initial={{ opacity: 0, x: 30 }}
-                                whileInView={{ opacity: 1, x: 0 }}
-                                viewport={{ once: true }}
-                                transition={{ duration: 0.5, delay: i * 0.12 }}
-                                className={`flex items-start gap-4 p-5 rounded-2xl border ${p.bg}`}
+                                variants={fadeRight}
+                                whileHover={{ x: 4 }}
+                                transition={{ type: 'spring', stiffness: 300, damping: 25 }}
+                                className={`flex items-start gap-3 sm:gap-4 p-4 sm:p-5 rounded-2xl border ${p.bg}`}
                             >
-                                <div className={`w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0 ${p.bg} border ${p.bg.split(' ')[1]}`}>
-                                    <p.icon size={20} className={p.color} />
+                                <div className={`w-9 h-9 sm:w-10 sm:h-10 rounded-xl flex items-center justify-center flex-shrink-0 ${p.bg}`}>
+                                    <p.icon size={18} className={p.color} />
                                 </div>
                                 <div>
-                                    <h3 className="font-bold text-white mb-1">{p.title}</h3>
-                                    <p className="text-slate-400 text-sm leading-relaxed">{p.desc}</p>
+                                    <h3 className="font-bold text-white mb-0.5 sm:mb-1 text-sm sm:text-base">{p.title}</h3>
+                                    <p className="text-slate-400 text-xs sm:text-sm leading-relaxed">{p.desc}</p>
                                 </div>
                             </motion.div>
                         ))}
-                    </div>
+                    </motion.div>
                 </div>
             </div>
         </section>
