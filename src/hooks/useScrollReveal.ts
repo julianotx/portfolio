@@ -1,8 +1,8 @@
 import { type Variants } from 'framer-motion';
 
 /** Standard viewport options for all scroll-reveal animations */
-// Lowering amount from 0.15 to 0.05 so it triggers earlier on long mobile screens
-export const viewport = { once: true, amount: 0.05 } as const;
+// Set to 0.15 for better synchronization of staggered groups
+export const viewport = { once: true, amount: 0.15 } as const;
 
 // Custom cubic-bezier easing — smooth deceleration
 const ease = 'easeOut' as const;
