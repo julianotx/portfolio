@@ -68,9 +68,7 @@ export const About = () => {
                             <motion.div
                                 key={p.title}
                                 variants={fadeRight}
-                                whileHover={{ x: 4 }}
-                                transition={{ type: 'spring', stiffness: 300, damping: 25 }}
-                                className={`flex items-start gap-3 sm:gap-4 p-4 sm:p-5 rounded-2xl border ${p.bg}`}
+                                className={`flex items-start gap-3 sm:gap-4 p-4 sm:p-5 rounded-2xl border ${p.bg} transition-transform hover:translate-x-1 duration-300`}
                             >
                                 <div className={`w-9 h-9 sm:w-10 sm:h-10 rounded-xl flex items-center justify-center flex-shrink-0 ${p.bg}`}>
                                     <p.icon size={18} className={p.color} />

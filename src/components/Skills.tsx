@@ -46,7 +46,7 @@ export const Skills = () => {
 
                 <motion.div
                     className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6"
-                    variants={staggerContainer(0.15)}
+                    variants={staggerContainer(0.08)}
                     initial="hidden"
                     whileInView="visible"
                     viewport={viewport}
@@ -55,8 +55,7 @@ export const Skills = () => {
                         <motion.div
                             key={group.category}
                             variants={fadeUp}
-                            whileHover={{ y: -4, transition: { type: 'spring', stiffness: 300, damping: 20 } }}
-                            className="p-4 sm:p-6 rounded-2xl bg-white/[0.03] border border-white/[0.07] hover:border-white/10 transition-colors"
+                            className="p-4 sm:p-6 rounded-2xl bg-white/[0.03] border border-white/[0.07] hover:border-white/10 transition-all duration-300 hover:-translate-y-1"
                         >
                             <motion.div
                                 variants={scaleIn}
