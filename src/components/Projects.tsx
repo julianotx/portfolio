@@ -7,7 +7,7 @@ const GITHUB_URL = 'https://github.com/julianotx';
 
 export const Projects = () => {
     return (
-        <section id="projects" className="py-20 sm:py-28 px-4 sm:px-6 bg-[#0d0d14]">
+        <section id="projects" className="py-20 sm:py-28 px-4 sm:px-6">
             <div className="max-w-7xl mx-auto">
                 {/* Section header */}
                 <motion.div

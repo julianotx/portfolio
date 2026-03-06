@@ -28,7 +28,7 @@ const pillars = [
 
 export const About = () => {
     return (
-        <section id="about" className="py-20 sm:py-28 px-4 sm:px-6 bg-[#0d0d14]">
+        <section id="about" className="py-20 sm:py-28 px-4 sm:px-6">
             <div className="max-w-7xl mx-auto">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 sm:gap-16 items-center">
                     {/* Text */}

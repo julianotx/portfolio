@@ -7,7 +7,7 @@ export const Hero = () => {
     return (
         <section className="relative min-h-screen flex items-center px-4 sm:px-6 overflow-hidden">
             {/* Gradient background */}
-            <div className="absolute inset-0 bg-[#060912]">
+            <div className="absolute inset-0 pointer-events-none">
                 <div className="absolute top-1/4 -left-32 w-72 sm:w-96 h-72 sm:h-96 bg-blue-600/15 rounded-full blur-[120px]" />
                 <div className="absolute bottom-1/4 -right-16 sm:-right-32 w-64 sm:w-80 h-64 sm:h-80 bg-violet-700/15 rounded-full blur-[100px]" />
                 <div className="absolute top-1/3 right-1/4 w-48 sm:w-72 h-48 sm:h-72 bg-blue-500/10 rounded-full blur-[80px]" />
