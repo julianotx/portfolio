@@ -61,25 +61,17 @@ export const Header = () => {
 
             {/* ── Glass layer ───────────────────────────────────────────── */}
             <div
-                className="absolute inset-0 pointer-events-none"
-                style={{
-                    backdropFilter: 'blur(18px)',
-                    WebkitBackdropFilter: 'blur(18px)',
-                    backgroundColor: scrolled ? 'rgba(5, 8, 18, 0.78)' : 'rgba(5, 8, 18, 0)',
-                    borderBottom: `1px solid ${scrolled ? 'rgba(59,130,246,0.14)' : 'rgba(59,130,246,0)'}`,
-                    boxShadow: scrolled ? '0 8px 32px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.055)' : '0 8px 32px rgba(0,0,0,0), inset 0 1px 0 rgba(255,255,255,0)',
-                    transition: 'background-color 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease',
-                }}
+                className={`absolute inset-0 pointer-events-none transition-all duration-300 ease-out backdrop-blur-[18px] 
+                    ${scrolled
+                        ? 'bg-[rgba(5,8,18,0.78)] border-b border-[rgba(59,130,246,0.14)] shadow-[0_8px_32px_rgba(0,0,0,0.45),inset_0_1px_0_rgba(255,255,255,0.055)]'
+                        : 'bg-[rgba(5,8,18,0)] border-b border-[rgba(59,130,246,0)] shadow-none'
+                    }`}
             />
 
             {/* ── Accent line at bottom (fades in on scroll) ───────────── */}
             <div
-                className="absolute bottom-0 left-0 right-0 h-px pointer-events-none"
-                style={{
-                    background: 'linear-gradient(to right, rgba(59,130,246,0), rgba(59,130,246,0.4), rgba(59,130,246,0))',
-                    opacity: scrolled ? 1 : 0,
-                    transition: 'opacity 0.4s ease',
-                }}
+                className={`absolute bottom-0 left-0 right-0 h-px pointer-events-none bg-gradient-to-r from-[rgba(59,130,246,0)] via-[rgba(59,130,246,0.4)] to-[rgba(59,130,246,0)] transition-opacity duration-400 ease-out ${scrolled ? 'opacity-100' : 'opacity-0'
+                    }`}
             />
 
             {/* ── Main content (always on top of glass) ────────────────── */}
