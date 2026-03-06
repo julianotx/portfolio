@@ -66,8 +66,8 @@ export const Header = () => {
                     backdropFilter: 'blur(18px)',
                     WebkitBackdropFilter: 'blur(18px)',
                     backgroundColor: scrolled ? 'rgba(5, 8, 18, 0.78)' : 'rgba(5, 8, 18, 0)',
-                    borderBottom: `1px solid ${scrolled ? 'rgba(59,130,246,0.14)' : 'transparent'}`,
-                    boxShadow: scrolled ? '0 8px 32px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.055)' : 'none',
+                    borderBottom: `1px solid ${scrolled ? 'rgba(59,130,246,0.14)' : 'rgba(59,130,246,0)'}`,
+                    boxShadow: scrolled ? '0 8px 32px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.055)' : '0 8px 32px rgba(0,0,0,0), inset 0 1px 0 rgba(255,255,255,0)',
                     transition: 'background-color 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease',
                 }}
             />
@@ -76,7 +76,7 @@ export const Header = () => {
             <div
                 className="absolute bottom-0 left-0 right-0 h-px pointer-events-none"
                 style={{
-                    background: 'linear-gradient(to right, transparent, rgba(59,130,246,0.4), transparent)',
+                    background: 'linear-gradient(to right, rgba(59,130,246,0), rgba(59,130,246,0.4), rgba(59,130,246,0))',
                     opacity: scrolled ? 1 : 0,
                     transition: 'opacity 0.4s ease',
                 }}
@@ -183,8 +183,8 @@ export const Header = () => {
                                         animate={{ x: 0, opacity: 1 }}
                                         transition={{ delay: i * 0.04, duration: 0.18 }}
                                         className={`flex items-center px-4 py-3 rounded-xl text-sm font-medium transition-colors ${active
-                                                ? 'bg-blue-500/12 border border-blue-500/20 text-blue-300'
-                                                : 'text-slate-300 hover:bg-white/6 hover:text-white'
+                                            ? 'bg-blue-500/12 border border-blue-500/20 text-blue-300'
+                                            : 'text-slate-300 hover:bg-white/6 hover:text-white'
                                             }`}
                                     >
                                         {label}
