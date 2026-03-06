@@ -46,9 +46,9 @@ export const Projects = () => {
                         <motion.div
                             key={p.num}
                             variants={fadeUp}
-                            className={`group relative bg-[#111118] border ${p.accent} hover:border-opacity-60 rounded-2xl overflow-hidden transition-all duration-300 hover:-translate-y-1.5`}
+                            className={`group relative bg-[#111118] border ${p.accent} hover:border-blue-500/50 rounded-2xl overflow-hidden transition-all duration-500 hover:-translate-y-1.5 hover:shadow-[0_8px_30px_rgba(0,0,0,0.4),0_0_0_1px_rgba(59,130,246,0.1),inset_0_1px_0_rgba(255,255,255,0.1)]`}
                         >
-                            <div className={`h-1.5 w-full bg-gradient-to-r ${p.gradient.replace('/60', '')}`} />
+                            <div className={`h-1 w-full bg-gradient-to-r transition-all duration-500 group-hover:h-1.5 ${p.gradient.replace('/60', '')}`} />
 
                             {/* Project Image Container */}
                             <div className="relative h-48 sm:h-64 overflow-hidden border-b border-white/5 bg-slate-900">
@@ -66,7 +66,7 @@ export const Projects = () => {
                             <div className="p-5 sm:p-7">
                                 <div className="flex flex-wrap gap-1.5 sm:gap-2 mb-4 sm:mb-5">
                                     {p.tags.map((t) => (
-                                        <span key={t} className={`text-[11px] sm:text-xs font-semibold px-2 sm:px-2.5 py-1 rounded-md border ${p.tag_color}`}>
+                                        <span key={t} className={`text-[11px] sm:text-xs font-medium px-3 sm:px-3.5 py-1 rounded-full border ${p.tag_color}`}>
                                             {t}
                                         </span>
                                     ))}

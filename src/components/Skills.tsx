@@ -76,7 +76,7 @@ export const Skills = () => {
                                     <motion.span
                                         key={skill}
                                         variants={pillVariant}
-                                        className="px-2.5 sm:px-3 py-1 sm:py-1.5 bg-white/5 border border-white/[0.08] text-slate-300 text-xs sm:text-sm rounded-lg hover:bg-white/10 transition-colors cursor-default"
+                                        className="px-3 sm:px-4 py-1.5 sm:py-2 bg-white/[0.02] border border-white/5 text-slate-300 text-xs sm:text-sm rounded-full hover:bg-white/10 hover:border-white/10 hover:text-white transition-all cursor-default"
                                     >
                                         {skill}
                                     </motion.span>
