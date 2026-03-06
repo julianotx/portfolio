@@ -43,7 +43,7 @@ export const About = () => {
                             Dados que geram valor.<br />
                             <span className="text-slate-400 font-normal">Código que funciona.</span>
                         </h2>
-                        <div className="space-y-3 sm:space-y-4 text-slate-400 text-base sm:text-lg leading-relaxed font-light">
+                        <div className="space-y-4 sm:space-y-5 text-slate-400 text-base sm:text-lg leading-relaxed font-normal">
                             <p>
                                 Sou Analista de Dados e Desenvolvedor com foco em criar soluções que combinam
                                 análise quantitativa com experiências digitais bem construídas.
