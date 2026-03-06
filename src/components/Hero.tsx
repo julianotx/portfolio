@@ -93,6 +93,7 @@ export const Hero = () => {
                             href="https://www.linkedin.com/in/juliano-g-teixeira/"
                             target="_blank"
                             rel="noopener noreferrer"
+                            aria-label="Meu Perfil no LinkedIn"
                             className="flex items-center gap-1.5 sm:gap-2 text-slate-500 hover:text-blue-400 transition-colors text-xs sm:text-sm"
                         >
                             <Linkedin size={16} />
@@ -100,6 +101,7 @@ export const Hero = () => {
                         </a>
                         <a
                             href="mailto:julianogab.tx@gmail.com"
+                            aria-label="Enviar um e-mail"
                             className="flex items-center gap-1.5 sm:gap-2 text-slate-500 hover:text-white transition-colors text-xs sm:text-sm"
                         >
                             <Mail size={16} />
