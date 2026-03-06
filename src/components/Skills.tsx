@@ -23,8 +23,8 @@ const skillGroups = [
 ];
 
 const pillVariant: Variants = {
-    hidden: { opacity: 0, scale: 0.8 },
-    visible: { opacity: 1, scale: 1, transition: { duration: 0.25, ease: 'easeOut' } },
+    hidden: { opacity: 0, scale: 0.9, willChange: 'opacity, transform' },
+    visible: { opacity: 1, scale: 1, transition: { duration: 0.15, ease: 'easeOut' } },
 };
 
 export const Skills = () => {
@@ -67,7 +67,7 @@ export const Skills = () => {
 
                             <motion.div
                                 className="flex flex-wrap gap-1.5 sm:gap-2"
-                                variants={staggerContainer(0.05, 0.1)}
+                                variants={staggerContainer(0.015, 0.05)}
                                 initial="hidden"
                                 whileInView="visible"
                                 viewport={viewport}

@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { BarChart3, Code2, TrendingUp } from 'lucide-react';
-import { fadeLeft, fadeRight, staggerContainer, viewport } from '../hooks/useScrollReveal';
+import { fadeUp, staggerContainer, viewport } from '../hooks/useScrollReveal';
 
 const pillars = [
     {
@@ -33,7 +33,7 @@ export const About = () => {
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 sm:gap-16 items-center">
                     {/* Text */}
                     <motion.div
-                        variants={fadeLeft}
+                        variants={fadeUp}
                         initial="hidden"
                         whileInView="visible"
                         viewport={viewport}
@@ -56,7 +56,7 @@ export const About = () => {
                         </div>
                     </motion.div>
 
-                    {/* Pillar cards — stagger from right, stack on mobile */}
+                    {/* Pillar cards — stagger from bottom, stack on mobile */}
                     <motion.div
                         className="flex flex-col gap-3 sm:gap-4"
                         variants={staggerContainer(0.14)}
@@ -67,7 +67,7 @@ export const About = () => {
                         {pillars.map((p) => (
                             <motion.div
                                 key={p.title}
-                                variants={fadeRight}
+                                variants={fadeUp}
                                 className={`flex items-start gap-3 sm:gap-4 p-4 sm:p-5 rounded-2xl border ${p.bg} transition-transform hover:translate-x-1 duration-300`}
                             >
                                 <div className={`w-9 h-9 sm:w-10 sm:h-10 rounded-xl flex items-center justify-center flex-shrink-0 ${p.bg}`}>
