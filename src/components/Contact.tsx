@@ -97,10 +97,7 @@ export const Contact = () => {
                             target={link.external ? '_blank' : undefined}
                             rel={link.external ? 'noopener noreferrer' : undefined}
                             variants={scaleIn}
-                            whileHover={{ scale: 1.05, y: -3 }}
-                            whileTap={{ scale: 0.97 }}
-                            transition={{ type: 'spring', stiffness: 300, damping: 22 }}
-                            className={`flex flex-col items-center justify-center gap-2 sm:gap-3 p-5 sm:p-6 rounded-2xl ${link.bg} border ${link.border} ${link.hoverBg} ${link.hoverBorder} transition-colors group w-full sm:w-48`}
+                            className={`flex flex-col items-center justify-center gap-2 sm:gap-3 p-5 sm:p-6 rounded-2xl ${link.bg} border ${link.border} ${link.hoverBg} ${link.hoverBorder} transition-all duration-300 hover:scale-105 hover:-translate-y-0.5 active:scale-95 group w-full sm:w-48`}
                         >
                             <div className={`w-10 h-10 sm:w-12 sm:h-12 rounded-full ${link.iconBg} flex items-center justify-center transform group-hover:scale-110 transition-transform`}>
                                 {link.icon}

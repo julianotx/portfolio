@@ -46,8 +46,7 @@ export const Projects = () => {
                         <motion.div
                             key={p.num}
                             variants={fadeUp}
-                            whileHover={{ y: -6, transition: { type: 'spring', stiffness: 280, damping: 22 } }}
-                            className={`group relative bg-[#111118] border ${p.accent} hover:border-opacity-60 rounded-2xl overflow-hidden transition-colors duration-300`}
+                            className={`group relative bg-[#111118] border ${p.accent} hover:border-opacity-60 rounded-2xl overflow-hidden transition-all duration-300 hover:-translate-y-1.5`}
                         >
                             <div className={`h-1.5 w-full bg-gradient-to-r ${p.gradient.replace('/60', '')}`} />
 
