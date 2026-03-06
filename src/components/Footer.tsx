@@ -7,7 +7,7 @@ const EMAIL_URL = 'mailto:julianogab.tx@gmail.com';
 
 export const Footer = () => {
     return (
-        <footer className="py-8 sm:py-10 bg-[#0d0d14] border-t border-white/5">
+        <footer className="py-8 sm:py-10 border-t border-white/5">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-4 sm:gap-5">
                 <div className="flex items-center gap-2">
                     <span className="w-7 h-7 rounded-md bg-blue-600 flex items-center justify-center text-white font-black text-xs">JT</span>

@@ -57,7 +57,7 @@ const contactLinks = [
 
 export const Contact = () => {
     return (
-        <section id="contact" className="py-20 sm:py-28 px-4 sm:px-6 bg-[#0a0a0f]">
+        <section id="contact" className="py-20 sm:py-28 px-4 sm:px-6">
             <div className="max-w-3xl mx-auto text-center">
                 {/* Section intro — fade up */}
                 <motion.div

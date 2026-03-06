@@ -9,41 +9,42 @@ const ease = 'easeOut' as const;
 
 /** Fade up — default for sections, headings, paragraphs */
 export const fadeUp: Variants = {
-    hidden: { opacity: 0, y: 40, willChange: 'opacity, transform' },
+    hidden: { opacity: 0, y: 20, willChange: 'opacity, transform' },
     visible: {
         opacity: 1,
         y: 0,
-        transition: { duration: 0.6, ease },
+        transition: { duration: 0.45, ease },
     },
 };
 
-/** Fade in from left */
+/** Fade in from left (Converted to FadeUp for cohesion) */
 export const fadeLeft: Variants = {
-    hidden: { opacity: 0, x: -40, willChange: 'opacity, transform' },
+    hidden: { opacity: 0, y: 20, willChange: 'opacity, transform' },
     visible: {
         opacity: 1,
-        x: 0,
-        transition: { duration: 0.6, ease },
+        y: 0,
+        transition: { duration: 0.45, ease },
     },
 };
 
-/** Fade in from right */
+/** Fade in from right (Converted to FadeUp for cohesion) */
 export const fadeRight: Variants = {
-    hidden: { opacity: 0, x: 40, willChange: 'opacity, transform' },
+    hidden: { opacity: 0, y: 20, willChange: 'opacity, transform' },
     visible: {
         opacity: 1,
-        x: 0,
-        transition: { duration: 0.6, ease },
+        y: 0,
+        transition: { duration: 0.45, ease },
     },
 };
 
 /** Scale + fade — for badges, icons and small elements */
 export const scaleIn: Variants = {
-    hidden: { opacity: 0, scale: 0.85, willChange: 'opacity, transform' },
+    hidden: { opacity: 0, y: 15, scale: 0.95, willChange: 'opacity, transform' },
     visible: {
         opacity: 1,
+        y: 0,
         scale: 1,
-        transition: { duration: 0.45, ease },
+        transition: { duration: 0.4, ease },
     },
 };
 

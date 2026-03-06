@@ -29,7 +29,7 @@ const pillVariant: Variants = {
 
 export const Skills = () => {
     return (
-        <section id="skills" className="py-20 sm:py-28 px-4 sm:px-6 bg-[#0a0a0f]">
+        <section id="skills" className="py-20 sm:py-28 px-4 sm:px-6">
             <div className="max-w-7xl mx-auto">
                 <motion.div
                     variants={fadeUp}
